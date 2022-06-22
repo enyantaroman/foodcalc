@@ -19,17 +19,17 @@ const FoodList = () => {
         name: '',
     }
 
-    const getListFood = useGetListData(`food/`, initState);
+    const getListData = useGetListData(`food/`, initState);
 
     return (
         <>
             <BasicTemplate breadcrumbs={breadcrumbs}>
                 <h1>食材一覧</h1>
                 {
-                    getListFood.loading?
+                    getListData.loading?
                         <h2>...Loading</h2>
                         :
-                        <GridList objs={getListFood.data} />
+                        <GridList objs={getListData.data} />
                 }
             </BasicTemplate>
         </>
