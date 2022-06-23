@@ -10,8 +10,6 @@ const Footer = () => {
                 backgroundColor: "#333",
                 color: "#eee",
                 p: 1,
-                width: "100%",
-                mt: 'auto',
             }}>
                 <CopyRight />
             </Box>

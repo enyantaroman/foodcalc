@@ -10,11 +10,16 @@ const BasicTemplate = (props) => {
     return (
         <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
             <Header />
+            <Box sx={(theme) => ({...theme.mixins.toolbar,})}></Box>
             <HeaderBottom breadcrumbs={breadcrumbs} />
             <Container maxWidth="md">
                 {children}
             </Container>
-            <Footer />
+            <Box sx={{
+                mt: 'auto',
+            }}>
+                <Footer />
+            </Box>
         </Box>
     )
 }
