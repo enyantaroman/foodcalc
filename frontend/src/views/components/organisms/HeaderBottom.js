@@ -1,6 +1,6 @@
 import { Box, Container, Toolbar } from "@mui/material";
 import CustomBreadCrumbs from '../molecules/CustomBreadCrumbs';
-import HomeButton from '../molecules/buttons/HomeButton';
+import HomeButton from '../molecules/HomeButton';
 
 const HeaderBottom = (props) => {
     const {breadcrumbs} = props;
