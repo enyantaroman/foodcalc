@@ -1,7 +1,7 @@
-import { TextField, Select, MenuItem, FormControl } from "@mui/material";
+import { TextField, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 
 export const TextInput = (props) => {
-    const { label, name, value, changeState, isState } = props;
+    const { label, name, value, changeState, isState, readOnly } = props;
 
     const handleInputChange = (e) => {
         const name = e.target.name
@@ -16,13 +16,14 @@ export const TextInput = (props) => {
                 name={name} 
                 value={value}
                 onChange={handleInputChange}
+                InputProps={{ readOnly: readOnly }}
             />
         </FormControl>
     )
 }
 
 export const TextArea = (props) => {
-    const { label, name, value, changeState, isState } = props;
+    const { label, name, value, changeState, isState, readOnly } = props;
 
     const handleInputChange = (e) => {
         const name = e.target.name
@@ -39,23 +40,38 @@ export const TextArea = (props) => {
                 name={name} 
                 value={value}
                 onChange={handleInputChange}
+                InputProps={{ readOnly: readOnly }}
              />
         </FormControl>
     )
 }
 
-export const SelectBox = () => {
-    const option = [];
+export const SelectBox = (props) => {
+    const { label, name, value, changeState, isState, option } = props;
+
+    const handleInputChange = (e) => {
+        const name = e.target.name
+        const value = e.target.value
+        changeState({...isState, [name]: value})
+    }
 
     return (
-        <Select
-            sx={{width: 300, mr: 5}}
-        >
-            <MenuItem value=''>選択しない</MenuItem>
-            {option.map((obj) => (
-                <MenuItem key={obj.id} value={obj.id}>{obj.name}</MenuItem>
-            ))}
-        </Select>
+        <FormControl fullWidth>
+            <InputLabel id={label}>{label}</InputLabel>
+            <Select
+                labelId={label}
+                label={label}
+                name={name} 
+                value={value}
+                onChange={handleInputChange}
+                sx={{width: 300, mr: 5}}
+            >
+                <MenuItem value=''>選択しない</MenuItem>
+                {option.map((obj) => (
+                    <MenuItem key={obj.id} value={obj.id}>{obj.name}</MenuItem>
+                ))}
+            </Select>
+        </FormControl>
     )
 }
 
@@ -68,7 +84,7 @@ export const PasswordInput = () => {
 }
 
 export const NumberInput = (props) => {
-    const { label, name, value, changeState, isState } = props;
+    const { label, name, value, changeState, isState, readOnly } = props;
 
     const handleInputChange = (e) => {
         const name = e.target.name
@@ -83,6 +99,7 @@ export const NumberInput = (props) => {
             name={name} 
             value={value}
             onChange={handleInputChange}
+            InputProps={{ readOnly: readOnly }}            
          />
     )
 }

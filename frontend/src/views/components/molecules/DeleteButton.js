@@ -1,10 +1,13 @@
 import { Button } from "@mui/material";
+import destroy from "../../../function/destroy";
 
 
-const DeleteButton = () => {
+const DeleteButton = (props) => {
+    const { destroyUrl, redirectPath } = props;
     return (
         <Button
-        variant="outlined"
+            variant="outlined"
+            onClick={() => destroy(destroyUrl, redirectPath)}
         >
             削除
         </Button>

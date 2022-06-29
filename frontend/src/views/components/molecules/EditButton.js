@@ -1,10 +1,11 @@
 import { Button } from "@mui/material";
 
-
-const EditButton = () => {
+const EditButton = (props) => {
+    const { editModeChange } = props;
     return (
         <Button
-        variant="contained"
+            variant="contained"
+            onClick={() => editModeChange(false)}
         >
             編集
         </Button>
