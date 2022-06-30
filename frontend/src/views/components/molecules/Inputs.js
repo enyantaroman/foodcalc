@@ -47,7 +47,7 @@ export const TextArea = (props) => {
 }
 
 export const SelectBox = (props) => {
-    const { label, name, value, changeState, isState, option } = props;
+    const { label, name, value, changeState, isState, option, readOnly } = props;
 
     const handleInputChange = (e) => {
         const name = e.target.name
@@ -64,6 +64,7 @@ export const SelectBox = (props) => {
                 name={name} 
                 value={value}
                 onChange={handleInputChange}
+                inputProps={{ readOnly: readOnly }}
                 sx={{width: 300, mr: 5}}
             >
                 <MenuItem value=''>選択しない</MenuItem>

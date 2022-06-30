@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Typography, Grid } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import BasicTemplate from "../components/templates/BasicTemplate";
 import CreateForm from "../components/organisms/CreateForm";
-import { TextInput, TextArea, SelectBox, NumberInput }  from '../components/molecules/Inputs';
+import { TextInput, TextArea }  from '../components/molecules/Inputs';
 import useGetOptionData from "../../hooks/useGetOptionData";
+import FoodInputSet from "../components/organisms/FoodInputSet";
 
 const breadcrumbs = [
     <Link to={`/`} key="1">
@@ -14,37 +15,6 @@ const breadcrumbs = [
         メニュー登録
     </Typography>,
 ];
-
-const FoodInputSet = (props) => {
-    const { index, valId, valNum, changeState, isState, option } = props;
-    return (
-        <Grid
-            container
-            rowSpacing={2}
-            columns={16}
-        >
-            <Grid item xs={16} sm={10} md={6}>
-                <SelectBox
-                    label={'食材' + index}
-                    name={'food_id' + index}
-                    value={valId}
-                    changeState={changeState}
-                    isState={isState}
-                    option={option}
-                />
-            </Grid>
-            <Grid item xs={16} sm={6} md={6}>
-                <NumberInput
-                    label={'食材' + index + 'の個数'}
-                    name={'food_number' + index}
-                    value={valNum}
-                    changeState={changeState}
-                    isState={isState}
-                />
-            </Grid>
-        </Grid>
-    )
-}
 
 const MenuCreate = () => {
     const initCreateData = {
